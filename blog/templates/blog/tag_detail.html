@@ -1,0 +1,18 @@
+{% extends "blog/baseBlog.html" %}
+
+{% block title %}
+    {{tag.title}} - {{block.super}}
+{% endblock %}
+
+{% block content %}
+<div style="margin-left: 15%">
+    <h1>
+        Posts with "{{tag.title|title}}" tag:
+        <!-- |title увеличивает первую букву -->
+    </h1>
+    {% for post in tag.posts.all %}
+        {% include "blog/includes/post_card_template.html" %}
+    {% endfor %}
+</div>
+{% endblock %}
+<!-- include- втавляем шаблон карточки -->

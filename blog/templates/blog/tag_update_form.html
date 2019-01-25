@@ -1,0 +1,23 @@
+{% extends "blog/baseBlog.html" %}
+
+{% block title %}
+    Edit tag {{tag.title|title}} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <form action="{{tag.get_update_url}}" method="post" class="tag-update-form">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {{field.label}}
+                {{field}}
+                {% if field.errors %}
+                <div class="alert alert-danger">
+                    {{field.errors}}
+                </div>
+            {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Update the tag</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "blog/baseBlog.html" %}
+{% block title %}
+    {{post.title}} - {{block.super}}
+{% endblock %}
+<!-- title будет "тайтлом поста - значение по умолчанию в базовом шаблоне"  -->
+{% block content %}
+<div style="margin-left: 15%">
+    <h1>
+        {{post.title}}
+    </h1>
+    <p>{{post.body}}</p>
+</div>
+{% endblock %}

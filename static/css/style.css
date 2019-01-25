@@ -1,0 +1,86 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#navbarTogglerDemo01 {
+    display: flex;
+    justify-content: space-between;
+}
+
+form.form-inline input {
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    margin-right: 10px;
+    height: 35px;
+    padding: 5px;
+}
+
+form.form-inline button {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: #2ecc71;
+    height: 35px;
+    transition:  0.2s;
+    cursor: pointer;
+}
+
+form.form-inline button:hover {
+    background-color: #27ae60;
+}
+
+.wrapper-tags {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-wrapper-about {
+    display: flex;
+    justify-content: center;
+}
+
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+
+.about-inf {
+    text-align: center;
+}
+
+.btn-create-post {
+    width: 20%;
+}
+
+form.post-delete-form,
+form.post-update-form,
+form.post-create-form,
+form.tag-create-form,
+form.tag-delete-form,
+form.tag-update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}

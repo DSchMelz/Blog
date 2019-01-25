@@ -84,3 +84,20 @@ form.tag-update-form {
     align-items: center;
     margin: 20px 0;
 }
+
+button i {
+    color: red;
+    transition: 0.25s;
+}
+
+button.like {
+    outline: none;
+    background-color: #343A40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover i {
+    transform: scale(1.5);
+}

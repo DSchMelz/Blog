@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
 }
 
-form.form-inline input {
+form.form-search input {
     border: none;
     border-radius: 3px;
     width: 100px;
@@ -30,7 +30,7 @@ form.form-inline input {
     padding: 5px;
 }
 
-form.form-inline button {
+form.form-search .btn-search {
     outline: none;
     border: none;
     border-radius: 3px;
@@ -40,7 +40,7 @@ form.form-inline button {
     cursor: pointer;
 }
 
-form.form-inline button:hover {
+form.form-search .btn-search:hover {
     background-color: #27ae60;
 }
 

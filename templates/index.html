@@ -37,12 +37,11 @@
               <a class="nav-link" href="{% url 'aboutList_url'%}">About</a>
             </li>
           </ul>
-          <span class="navbar-brand">My Blog</span>
-          <form class="form-inline form-search" action="{% url 'postsList_url' %}">
-            <input type="search" placeholder="Search" aria-label="Search" name="search">
-            <button type="submit" class="btn-search">Search</button>
-          </form>
           <button class="like"><i class="far fa-heart"></i></button>
+          <form class="form-inline form-search" action="{% url 'postsList_url' %}">
+              <input type="search" placeholder="Search" aria-label="Search" name="search">
+              <button type="submit" class="btn-search">Search</button>
+          </form>
         </div>
       </nav>
     {% block content %}

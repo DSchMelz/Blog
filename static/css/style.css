@@ -18,11 +18,7 @@ body {
 
 #navbarTogglerDemo01 {
     display: flex;
-    justify-content: flex-end;
-}
-
-#navbarTogglerDemo01 ul {
-    margin-right: 800px;
+    justify-content: space-between;
 }
 
 form.form-search input {
@@ -96,12 +92,18 @@ button i {
 
 button.like {
     outline: none;
-    background-color: #343A40;
+    background-color: #F7F7F7;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    position: absolute;
+    left: 90%;
 }
 
 button:hover i {
-    transform: scale(1.5);
+    transform: scale(1.4);
+}
+
+.card-footer {
+    position: relative;
 }

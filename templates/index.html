@@ -86,4 +86,12 @@
       </div>
     {% endif %}
 </body>
+<script>
+    var like = $(".like");
+    like.click(function(){
+      var heart = $(this).children();
+      heart.toggleClass("anim");
+      heart.toggleClass("fas");
+    })
+</script>
 </html>

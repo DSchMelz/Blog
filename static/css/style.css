@@ -88,3 +88,42 @@ form.tag-update-form {
     align-items: center;
     margin: 20px 0;
 }
+
+button i {
+    color: red;
+    transition: 0.25s;
+}
+
+button.like {
+    outline: none;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 90%;
+}
+
+button:hover i {
+    transform: scale(1.4);
+}
+
+.card-footer {
+    position: relative;
+}
+
+.anim {
+    animation: like 1.2s ease-out;
+}
+
+@keyframes like {
+    0% {
+        transform: rotate(0);
+    }
+    80% {
+        transform: rotate(360deg);
+    }
+    90% {
+        transform: scale(1.5);
+    }
+}

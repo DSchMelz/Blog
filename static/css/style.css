@@ -148,7 +148,11 @@ button:hover i {
 }
 
 .anim {
+<<<<<<< HEAD
     animation: like 1.2s, ease-out;
+=======
+    animation: like 1.2s ease-out;
+>>>>>>> 15eefa2f9dbe3b952a85f06c793be35c1799e914
 }
 
 @keyframes like {

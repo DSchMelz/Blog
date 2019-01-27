@@ -26,7 +26,18 @@
 </head>
 <body>
     <nav class="nav-urls">
-          <ul>
+        <div class="menu-block">
+            <nav class="menu-nav">
+                <a href="{% url 'postsList_url'%}">Posts</a>
+                <a href="{% url 'tags_list_url' %}">Tags</a>
+                <a href="{% url 'aboutList_url'%}">About</a>
+            </nav>
+            
+            <a href="#" class="menu-btn">
+              <span></span>
+            </a>
+          </div>
+          <ul class="not-mobile-menu">
             <li>
               <a href="{% url 'postsList_url'%}">Posts</a>
               <!-- ссылка, так удобнее указывать, и чтобы было без ошибок -->
@@ -38,7 +49,7 @@
               <a href="{% url 'aboutList_url'%}">About</a>
             </li>
           </ul>
-          <form action="{% url 'postsList_url' %}">
+          <form class="not-mobile-form" action="{% url 'postsList_url' %}">
               <input type="search" placeholder="Search" name="search">
               <button type="submit" class="btn-search">Search</button>
           </form>
@@ -88,6 +99,13 @@
       var heart = $(this).children();
       heart.toggleClass("anim");
       heart.toggleClass("fas");
-    })
+    });
+    var button = document.querySelector(".menu-btn");
+    var nav = document.querySelector(".menu-nav");
+    button.onclick = function(event) {
+      event.preventDefault();//отменяет стандартное действие тега, в данном случае ссылки
+      this.classList.toggle("menu-btn_active");//присваиваем класс по клику
+      nav.classList.toggle("menu-nav_active");
+    }
 </script>
 </html>

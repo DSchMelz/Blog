@@ -1,0 +1,3 @@
+# Blog
+This is my first testing app
+It developed with django

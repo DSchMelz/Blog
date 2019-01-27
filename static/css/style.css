@@ -18,7 +18,11 @@ body {
 
 #navbarTogglerDemo01 {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+#navbarTogglerDemo01 ul {
+    margin-right: 800px;
 }
 
 form.form-search input {

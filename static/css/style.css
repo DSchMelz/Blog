@@ -107,3 +107,19 @@ button:hover i {
 .card-footer {
     position: relative;
 }
+
+.anim {
+    animation: like 1.2s ease-out;
+}
+
+@keyframes like {
+    0% {
+        transform: rotate(0);
+    }
+    80% {
+        transform: rotate(360deg);
+    }
+    90% {
+        transform: scale(1.5);
+    }
+}

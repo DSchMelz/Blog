@@ -2,6 +2,11 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .list {
     display: flex;
     flex-direction: column;
@@ -16,36 +21,66 @@ body {
     justify-content: center;
 }
 
-#navbarTogglerDemo01 {
+nav.nav-urls {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2f3640;
 }
 
-#navbarTogglerDemo01 ul {
-    margin-right: 800px;
-}
-
-form.form-search input {
+input[type="search"] {
     border: none;
     border-radius: 3px;
-    width: 100px;
-    margin-right: 10px;
-    height: 35px;
-    padding: 5px;
+    background-color: #fff;
+    padding-left: 5px;
+    width: 130px;
 }
 
-form.form-search .btn-search {
-    outline: none;
+button.btn-search {
     border: none;
     border-radius: 3px;
     background-color: #2ecc71;
-    height: 35px;
-    transition:  0.2s;
+    color: #fff;
+    padding: 5px;
+    margin-left: 5px;
     cursor: pointer;
+    transition:  0.2s;
 }
 
-form.form-search .btn-search:hover {
+button.btn-search:hover {
     background-color: #27ae60;
+}
+
+nav.nav-urls ul {
+    width: 20%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+}
+
+nav.nav-urls ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+nav.nav-urls ul li a::before {
+	content: '';
+	bottom: -5px;
+	right: 0;
+	position: absolute;
+	width: 0;
+	height: 2px;
+	background-color: #c4c4c4;
+	transition: 0.2s;
+}
+
+nav.nav-urls ul li a:hover::before {
+	width: 100%;
+	left: 0;
 }
 
 .wrapper-tags {
@@ -87,4 +122,43 @@ form.tag-update-form {
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
+}
+
+button i {
+    color: red;
+    transition: 0.25s;
+}
+
+button.like {
+    outline: none;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 90%;
+}
+
+button:hover i {
+    transform: scale(1.4);
+}
+
+.card-footer {
+    position: relative;
+}
+
+.anim {
+    animation: like 1.2s, ease-out;
+}
+
+@keyframes like {
+    0% {
+        transform: rotate(0);
+    }
+    80% {
+        transform: rotate(360deg);
+    }
+    90% {
+        transform: scale(1.5);
+    }
 }

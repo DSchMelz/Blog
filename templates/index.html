@@ -4,6 +4,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -11,6 +16,7 @@
     <!-- подключаем css файл -->
     <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adaptive.css' %}">
     <title>
         {% block title%}
             Blog
@@ -19,29 +25,23 @@
     <!-- если ничего не будет в основных файлах, то будет отображаться это -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'postsList_url'%}">Posts</a>
+    <nav class="nav-urls">
+          <ul>
+            <li>
+              <a href="{% url 'postsList_url'%}">Posts</a>
               <!-- ссылка, так удобнее указывать, и чтобы было без ошибок -->
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
+            <li>
+              <a href="{% url 'tags_list_url' %}">Tags</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'aboutList_url'%}">About</a>
+            <li>
+              <a href="{% url 'aboutList_url'%}">About</a>
             </li>
           </ul>
-          <button class="like"><i class="far fa-heart"></i></button>
-          <form class="form-inline form-search" action="{% url 'postsList_url' %}">
-              <input type="search" placeholder="Search" aria-label="Search" name="search">
+          <form action="{% url 'postsList_url' %}">
+              <input type="search" placeholder="Search" name="search">
               <button type="submit" class="btn-search">Search</button>
           </form>
-        </div>
       </nav>
     {% block content %}
         There is no any content for you(
@@ -82,4 +82,12 @@
       </div>
     {% endif %}
 </body>
+<script>
+    var like = $(".like");
+    like.click(function(){
+      var heart = $(this).children();
+      heart.toggleClass("anim");
+      heart.toggleClass("fas");
+    })
+</script>
 </html>

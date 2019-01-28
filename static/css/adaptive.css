@@ -36,7 +36,7 @@
 }
 
 @media screen and (max-width: 550px) {
-    .nav-urls ul, form {
+    .nav-urls ul, form.not-mobile-form {
         visibility: hidden;
     }
     .nav-urls {
@@ -46,6 +46,9 @@
         display: flex;
     }
     .not-mobile-form, .not-mobile-menu {
+        display: none;
+    }
+    .div-search {
         display: none;
     }
 }

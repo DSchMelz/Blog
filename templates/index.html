@@ -49,10 +49,15 @@
               <a href="{% url 'aboutList_url'%}">About</a>
             </li>
           </ul>
-          <form class="not-mobile-form" action="{% url 'postsList_url' %}">
-              <input type="search" placeholder="Search" name="search">
-              <button type="submit" class="btn-search">Search</button>
-          </form>
+          <div class="div-search">
+            <form action="{% url 'postsList_url' %}" class="form-search">
+              <input class="search-input" type="search" placeholder="Search" name="search">
+              <a href="" class="search-btn">
+                <i class="fas fa-search"></i>
+              </a>
+              <button class="form-btn" type="submit">Search</button>
+            </form>
+          </div>
       </nav>
     {% block content %}
         There is no any content for you(
@@ -106,6 +111,15 @@
       event.preventDefault();//отменяет стандартное действие тега, в данном случае ссылки
       this.classList.toggle("menu-btn_active");//присваиваем класс по клику
       nav.classList.toggle("menu-nav_active");
+    }
+    var search_txt = document.querySelector(".search-input");
+    var search_btn = document.querySelector(".search-btn");
+    var form_btn = document.querySelector(".form-btn");
+    search_btn.onclick = function(event){
+      event.preventDefault();
+      search_txt.focus();
+      search_txt.classList.toggle("search-input-active");
+      form_btn.classList.toggle("form-btn-active");
     }
 </script>
 </html>

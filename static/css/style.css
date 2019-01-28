@@ -260,3 +260,66 @@ button.like:hover i {
     transform: rotate(180deg);
     display: none;
 }
+.div-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+.div-search form .search-input {
+    background-color: #222f3e;
+    border-radius: 40px;
+    width: 0;
+    height: 0;
+    outline: none;
+    transition: 0.25s;
+    margin: 0;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.div-search form .search-input-active {
+    width: 200px;
+    height: 30px;
+    transition: 0.25s;
+}
+
+.fa-search {
+    color: #e84118;
+}
+
+.search-btn {
+    background-color: #222f3e;
+    padding: 5px;
+    border-radius: 50%;
+    margin: 0;
+    position: relative;
+    left: -20px;
+}
+
+.form-btn-active {
+    border:none;
+    background-color: #1dd1a1;
+    outline: none;
+    width: 20px;
+    height: 10px;
+}
+
+.form-btn {
+    visibility: hidden;
+}
+
+.form-btn-active {
+    transition: 0.25s;
+    visibility: visible;
+    width: 60px;
+    background-color: #1dd1a1;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}

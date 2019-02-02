@@ -1,6 +1,5 @@
 # Blog
-It is my first test app.
-It's adaptive.
-Developed with django.
-Also I used html, css, js.
+It is my first app
+developed with django.
+I also used html, css, js.
 ![Screenshot](Screenshot_1.png)

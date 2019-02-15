@@ -2,6 +2,8 @@ from .models import *
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 class ObjectDetailMixin:#испотуем миксины
     model = None
@@ -19,6 +21,13 @@ class ObjectCreateMixin:
         return render(request, self.template, context={"form": form})
 
     def post(self, request):
+        send_mail(
+        'Новый пост',
+        'Вышел новый пост! Заходите скорее на сайт, чтобы посмотреть его',
+        'leshev.da@mail.ru',
+        ['leshev_aa@mail.ru'],
+        fail_silently=False,
+    )
         bound_form = self.model_form(request.POST)
 
         if bound_form.is_valid():

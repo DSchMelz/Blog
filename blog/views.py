@@ -10,6 +10,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
 # def redirectDef(request):
@@ -69,16 +72,53 @@ def tags_list(request):
     tags = Tag.objects.all()#получаем все теги
     return render(request, "blog/tags_list.html", context = {"tags": tags})
 
-class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):#к чему хотим ограничить доступ добавляем этот класс
+class PostCreate(LoginRequiredMixin, View):#к чему хотим ограничить доступ добавляем этот класс
 #кнопки если мы не логинены они не будут отобр, но сылки работать будут, для этого класс LoginRequiredMixin
     model_form = PostForm
     template = "blog/post_create_form.html"
+    def get(self, request):
+        form = self.model_form()
+        #django сам генерирует форму и инпуты
+        return render(request, self.template, context={"form": form})
+
+    def post(self, request):
+        bound_form = self.model_form(request.POST)
+        if bound_form.is_valid():
+            subject, from_email, to = 'Новый пост!', 'leshev.da@mail.ru', 'leshev_aa@mail.ru'
+            text_content = 'Вышел новый пост!'
+            html_content = "<div style='font-family: 'Montserrat', sans-serif><p>В нашем блоге только что вышел <strong>новый пост</strong></p><p>Заходите, чтобы посмотреть!</p></div>"
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+            new_obj = bound_form.save()
+            return redirect(new_obj)#перенаправление на стр с постами с этим тегом
+        return render(request, self.template, context={"form": bound_form})
+        # send_mail(
+        #     'Новый пост',
+        #     'Вышел новый пост! Заходите скорее на сайт, чтобы посмотреть его',
+        #     'leshev.da@mail.ru',
+        #     ['leshev_aa@mail.ru'],
+        #     fail_silently=False,
+        # )
+        #ВМЕСТО SEND_MAIL ИСПОЛЬЗУЕМ ЭТО, ЧТОБЫ ОТПРАВЛЯТЬ И HTML
     raise_exception = True#403 ошибка, а не ссылка не найдена(тип доступ закрыт)
 
-class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
+class TagCreate(LoginRequiredMixin, View):
     model_form = TagForm
     template = "blog/tag_create.html"
     raise_exception = True
+    def get(self, request):
+        form = self.model_form()
+        #django сам генерирует форму и инпуты
+        return render(request, self.template, context={"form": form})
+
+    def post(self, request):
+        bound_form = self.model_form(request.POST)
+
+        if bound_form.is_valid():
+            new_obj = bound_form.save()
+            return redirect(new_obj)#перенаправление на стр с постами с этим тегом
+        return render(request, self.template, context={"form": bound_form})
 
 class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     model = Post

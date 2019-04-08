@@ -84,7 +84,7 @@ class PostCreate(LoginRequiredMixin, View):#к чему хотим ограни�
     def post(self, request):
         bound_form = self.model_form(request.POST)
         if bound_form.is_valid():
-            subject, from_email, to = 'Новый пост!', 'leshev.da@mail.ru', 'leshev_aa@mail.ru'
+            subject, from_email, to = 'Новый пост!', 'leshev.da@gmail.com', 'leshef.aa@gmail.com'
             text_content = 'Вышел новый пост!'
             html_content = "<div style='font-family: 'Montserrat', sans-serif><p>В нашем блоге только что вышел <strong>новый пост</strong></p><p>Заходите, чтобы посмотреть!</p></div>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])

@@ -26,7 +26,7 @@ nav.nav-urls {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #2f3640;
+    background-color: #3c649c;
 }
 
 input[type="search"] {
@@ -41,7 +41,7 @@ input[type="search"] {
 button.btn-search {
     border: none;
     border-radius: 3px;
-    background-color: #2ecc71;
+    background-color: #2ec1cc;
     color: #fff;
     padding: 5px;
     margin-left: 5px;
@@ -50,7 +50,7 @@ button.btn-search {
 }
 
 button.btn-search:hover {
-    background-color: #27ae60;
+    background-color: #2b7abb;
 }
 
 nav.nav-urls ul {
@@ -270,14 +270,14 @@ button.like:hover i {
     padding: 0;
 }
 .div-search form .search-input {
-    background-color: #222f3e;
+    background-color: #4834d4;
     border-radius: 40px;
     width: 0;
     height: 0;
     outline: none;
     transition: 0.25s;
     margin: 0;
-    color: #fff;
+    color: #000;
     padding-left: 10px;
 }
 
@@ -292,7 +292,7 @@ button.like:hover i {
 }
 
 .search-btn {
-    background-color: #222f3e;
+    background-color: #251f6b;
     padding: 5px;
     border-radius: 50%;
     margin: 0;
@@ -302,7 +302,7 @@ button.like:hover i {
 
 .form-btn-active {
     border:none;
-    background-color: #1dd1a1;
+    background-color: #686de0;
     outline: none;
     width: 20px;
     height: 10px;
@@ -316,7 +316,7 @@ button.like:hover i {
     transition: 0.25s;
     visibility: visible;
     width: 60px;
-    background-color: #1dd1a1;
+    background-color: #2587a5;
     height: 30px;
     border: none;
     border-radius: 3px;

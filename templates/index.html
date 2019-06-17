@@ -49,15 +49,13 @@
               <a href="{% url 'aboutList_url'%}">About</a>
             </li>
           </ul>
-          <div class="div-search">
             <form action="{% url 'postsList_url' %}" class="form-search">
               <input class="search-input" type="search" name="search">
+              <button class="form-btn" type="submit"></button>
               <a href="" class="search-btn">
                 <i class="fas fa-search"></i>
               </a>
-              <button class="form-btn" type="submit">Search</button>
             </form>
-          </div>
       </nav>
     {% block content %}
         There is no any content for you(

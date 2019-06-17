@@ -25,8 +25,9 @@ nav.nav-urls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
     background-color: #3c649c;
+    height: 70px;
+    padding: 0 20px;
 }
 
 input[type="search"] {
@@ -260,17 +261,17 @@ button.like:hover i {
     transform: rotate(180deg);
     display: none;
 }
-.div-search {
+
+form.form-search {
+    width: 30%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: 30px;
-    margin: 0;
-    padding: 0;
 }
-.div-search form .search-input {
-    background-color: #4834d4;
+
+form .search-input {
+    background-color: #251f6b;
     border-radius: 40px;
     width: 0;
     height: 0;
@@ -278,48 +279,60 @@ button.like:hover i {
     transition: 0.25s;
     margin: 0;
     color: #000;
-    padding-left: 10px;
+    padding-left: 5%;
 }
 
-.div-search form .search-input-active {
+form .search-input-active {
     width: 200px;
     height: 30px;
-    transition: 0.25s;
 }
 
 .fa-search {
-    color: #e84118;
+    color: #000;
+}
+
+.search-btn:hover {
+    text-decoration: none;
 }
 
 .search-btn {
     background-color: #251f6b;
-    padding: 5px;
     border-radius: 50%;
-    margin: 0;
-    position: relative;
-    left: -20px;
-}
-
-.form-btn-active {
-    border:none;
-    background-color: #686de0;
-    outline: none;
-    width: 20px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    transform: translateX(-50px);
 }
 
 .form-btn {
+    transition: 0.2s;
+    width: 25px;
+    transform: translateX(10px);
+    background-color: #2ecc71;
+    height: 25px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
     visibility: hidden;
 }
 
 .form-btn-active {
-    transition: 0.25s;
     visibility: visible;
-    width: 60px;
-    background-color: #2587a5;
-    height: 30px;
-    border: none;
-    border-radius: 3px;
-    outline: none;
+}
+
+.ajaxbtn {
     cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: #2ecc71;
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.ajaxbtn:hover {
+    background-color: #27ae60;
 }

@@ -1,14 +1,20 @@
 {% extends "blog/baseBlog.html" %}
+{% load static %}
 {% block title %}
     About
 {% endblock %}
 {% block content %}
+<script src="{% static 'js/ajax.js' %}"></script>
     <div class="main-wrapper-about">
         <div class="about-wrapper">
             <h1 class="about-h1">About Page</h1>
-            <p class="about-inf">
+            <button class="ajaxbtn">Load data</button>
+
+            <div id="placeLoad"></div>
+
+            <!-- <p class="about-inf">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloremque cupiditate earum totam architecto reiciendis odit dolorum dolorem cum veniam fuga aspernatur tenetur, blanditiis incidunt quae voluptatum quidem animi cumque iure facilis maxime doloribus tempora quia rerum. Perferendis veniam eveniet autem tempora, id atque! Provident, molestias labore ratione expedita vitae necessitatibus, assumenda quia harum quisquam odit facilis nesciunt nulla corporis. Harum sapiente laudantium omnis laborum repellendus facilis tempore eius aut rem ducimus, aliquam iusto doloribus at iure, quod quae quas. Odit iure aliquid accusamus et ex repudiandae maxime, quas sapiente dignissimos! Porro, eligendi beatae autem quaerat cupiditate quisquam deleniti libero.
-            </p>
+            </p> -->
         </div>
     </div>
 {% endblock %}

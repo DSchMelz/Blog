@@ -320,6 +320,10 @@ form .search-input-active {
     visibility: hidden;
 }
 
+.form-btn i {
+    color: #fff;
+}
+
 .form-btn-active {
     visibility: visible;
 }

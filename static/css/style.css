@@ -278,7 +278,7 @@ form .search-input {
     outline: none;
     transition: 0.25s;
     margin: 0;
-    color: #000;
+    color: #fff;
     padding-left: 5%;
 }
 
@@ -339,4 +339,8 @@ form .search-input-active {
 
 .ajaxbtn:hover {
     background-color: #27ae60;
+}
+
+div#placeLoad {
+    margin: 10px;
 }

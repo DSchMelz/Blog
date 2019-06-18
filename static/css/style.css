@@ -343,4 +343,5 @@ form .search-input-active {
 
 div#placeLoad {
     margin: 10px;
+    border-radius: 3%;
 }

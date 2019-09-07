@@ -4,12 +4,13 @@
     About
 {% endblock %}
 {% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 <script src="{% static 'js/ajax.js' %}"></script>
+<input type="hidden" id="csrftk" value="{{csrf_token}}">
     <div class="main-wrapper-about">
         <div class="about-wrapper">
             <h1 class="about-h1">About Page</h1>
-            <button class="ajaxbtn">Load text</button>
-            <div id="placeLoad"></div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil similique ipsam hic impedit reprehenderit quae, fugiat error alias, quasi reiciendis unde aliquid dolores excepturi ut. Unde aspernatur ipsa at enim perferendis itaque voluptatibus blanditiis corporis, libero veniam, suscipit distinctio sunt!
         </div>
     </div>
 {% endblock %}

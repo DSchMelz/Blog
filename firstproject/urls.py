@@ -23,8 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("blog/", include("blog.blogUrls")),
     path("", redirectBlog),
-    path("ajax/", ajax),
-    path("about/", aboutList, name = "aboutList_url")
+    path("about/", aboutList, name = "aboutList_url"),
     #по путю blog смотрим в файл blogUrls.py
     #и там такой же массив с дочерними ссылками от blog/
 ]

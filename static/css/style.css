@@ -328,7 +328,7 @@ form .search-input-active {
     visibility: visible;
 }
 
-.ajaxbtn {
+#ajaxbtn, #ajaxbtn1 {
     cursor: pointer;
     outline: none;
     border: none;
@@ -337,7 +337,7 @@ form .search-input-active {
     border-radius: 5%;
 }
 
-.ajaxbtn:hover {
+#ajaxbtn:hover, #ajaxbtn1:hover {
     background-color: #27ae60;
 }
 

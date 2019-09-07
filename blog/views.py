@@ -13,6 +13,11 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.core.mail import EmailMultiAlternatives
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from django.http import JsonResponse
+from datetime import datetime
+import json
 
 # Create your views here.
 # def redirectDef(request):
@@ -84,23 +89,9 @@ class PostCreate(LoginRequiredMixin, View):#к чему хотим ограни�
     def post(self, request):
         bound_form = self.model_form(request.POST)
         if bound_form.is_valid():
-            subject, from_email, to = 'Новый пост!', 'leshev.da@gmail.com', 'leshef.aa@gmail.com'
-            text_content = 'Вышел новый пост!'
-            html_content = "<div style='font-family: 'Montserrat', sans-serif><p>В нашем блоге только что вышел <strong>новый пост</strong></p><p>Заходите, чтобы посмотреть!</p></div>"
-            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
             new_obj = bound_form.save()
             return redirect(new_obj)#перенаправление на стр с постами с этим тегом
         return render(request, self.template, context={"form": bound_form})
-        # send_mail(
-        #     'Новый пост',
-        #     'Вышел новый пост! Заходите скорее на сайт, чтобы посмотреть его',
-        #     'leshev.da@mail.ru',
-        #     ['leshev_aa@mail.ru'],
-        #     fail_silently=False,
-        # )
-        #ВМЕСТО SEND_MAIL ИСПОЛЬЗУЕМ ЭТО, ЧТОБЫ ОТПРАВЛЯТЬ И HTML
     raise_exception = True#403 ошибка, а не ссылка не найдена(тип доступ закрыт)
 
 class TagCreate(LoginRequiredMixin, View):
@@ -144,5 +135,22 @@ class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     redirectUrl = "postsList_url"
     raise_exception = True
 
-def ajax(request):
-    return render(request, "blog/ajax.html")
+# class TestView(View):
+#     @staticmethod
+#     def get(request):
+#         # Здесь Вы обрабатываете запрос и формируете ответ
+#         data = {
+#             'time': datetime.now(),
+#         }
+
+#         return JsonResponse(data)
+
+#     @staticmethod
+#     def post(request):
+#         # Здесь Вы обрабатываете запрос и формируете ответ
+#         data = {
+#             'post': "It is post!",
+#             'comment': "It's response to POST request",
+#         }
+
+#         return JsonResponse(data)

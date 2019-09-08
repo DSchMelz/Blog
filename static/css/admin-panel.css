@@ -5,14 +5,21 @@
     top: 30%;
     left: 97%;
     z-index: 3;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     opacity: 0.6;
+    -webkit-transition: 0.3s;
     transition: 0.3s;
     padding: 5px 5px;
 }
 
 .admin-panel a {
+    -webkit-transition: 0.3s;
     transition: 0.3s;
     opacity: 0;
     margin: 3px 0;
@@ -27,7 +34,8 @@
     font-weight: bold;
     right: 25px;
     top: 120px;
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
 }
 
 .admin-panel:hover {

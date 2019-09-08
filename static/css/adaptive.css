@@ -43,6 +43,8 @@
         height: 30px;
     }
     .menu-block {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
     .not-mobile-form, .not-mobile-menu {

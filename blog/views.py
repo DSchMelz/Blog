@@ -39,7 +39,7 @@ def postsList(request):
         posts = Post.objects.all()#печатаем все посты из бд
     #вкл шаблон хтмл
 
-    paginator = Paginator(posts, 3)# по 2 поста на стр
+    paginator = Paginator(posts, 3)# по 3 поста на стр
     page_number = request.GET.get("page", 1)#1-значение,если не найдена стр
     page = paginator.get_page(page_number)#1 стр#это как на сайтах встречается ?параметр =
 

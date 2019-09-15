@@ -21,9 +21,11 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
 }
 
-.wrapper {
+footer {
     margin: 0;
     padding: 0;
     display: -webkit-box;
@@ -32,6 +34,8 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    position: fixed;
+    bottom: 0;
 }
 
 nav.nav-urls {
@@ -44,7 +48,6 @@ nav.nav-urls {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: #3c649c;
     height: 70px;
     padding: 0 20px;
 }
@@ -127,7 +130,6 @@ nav.nav-urls ul li a:hover::before {
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center;
 }
 
 .main-wrapper-about {
@@ -377,7 +379,6 @@ form.form-search {
 }
 
 form .search-input {
-    background-color: #251f6b;
     border-radius: 40px;
     width: 0;
     height: 0;
@@ -403,7 +404,6 @@ form .search-input-active {
 }
 
 .search-btn {
-    background-color: #251f6b;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -444,6 +444,10 @@ form .search-input-active {
     visibility: visible;
 }
 
+.card {
+    margin: 5% 0;
+}
+
 :root {
     color-scheme: light dark;
 }
@@ -451,4 +455,20 @@ form .search-input-active {
 body {
     color: var(--color);
     background-color: var(--background-color);
+}
+
+.card {
+    background-color: var(--cardBcg);
+}
+
+button.like {
+    background-color: transparent;
+}
+
+.nav-urls {
+    background-color: var(--navBcg);
+}
+
+.search-btn, form .search-input {
+    background-color: var(--searchBcg);
 }

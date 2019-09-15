@@ -59,7 +59,7 @@
         There is no any content for you(
     {% endblock %}
     {% if is_paginated %}
-    <div class="wrapper">
+    <footer>
     <nav aria-label="...">
       <ul class="pagination">
         <li class="page-item {% if not prev_url %} disabled {% endif %}">
@@ -85,6 +85,7 @@
         </li>
       </ul>
     </nav>
+    </footer>
     {% endif %}
     </div>
     {% if request.user.is_authenticated and request.user.is_staff %}

@@ -1,12 +1,11 @@
 {% extends "blog/baseBlog.html" %}
 <!-- вставляем базовый файл, содержимое которого можно размещать на любых стр -->
 {% block title %}
-    MyBlogOnDjango
+    Blog App
 {% endblock %}
 <!-- теперб чтобы отобразить что-то там, где у нас в юазавом шаблоне есть эти блоки, мы их продуюлируем и вставим инфу -->
     {% block content %}
 <div class="list">
-    <h1>Posts:</h1>
     <!-- В таких скобках может указываться код python -->
     {% for post in page_object.object_list %}
         {% include "blog/includes/post_card_template.html" %}

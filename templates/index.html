@@ -85,12 +85,12 @@
     </nav>
     {% endif %}
     </div>
-    {% if request.user.is_authenticated and request.user.is_staff %}
+    <!-- {% if request.user.is_authenticated and request.user.is_staff %}
     <!-- если пользователь залогинен и является админом -->
-      <div class="admin-panel">
-        {% block admin-panel %}{% endblock %}
-      </div>
-    {% endif %}
+      <!-- <div class="admin-panel"> -->
+        <!-- {% block admin-panel %}{% endblock %} -->
+      <!-- </div> -->
+    <!-- {% endif %} -->
 </body>
 <script>
     var like = $(".like");

@@ -76,65 +76,6 @@ class TagDetail(ObjectDetailMixin, View):
 def tags_list(request):
     tags = Tag.objects.all()#получаем все теги
     return render(request, "blog/tags_list.html", context = {"tags": tags})
-
-class PostCreate(LoginRequiredMixin, View):#к чему хотим ограничить доступ добавляем этот класс
-#кнопки если мы не логинены они не будут отобр, но сылки работать будут, для этого класс LoginRequiredMixin
-    model_form = PostForm
-    template = "blog/post_create_form.html"
-    def get(self, request):
-        form = self.model_form()
-        #django сам генерирует форму и инпуты
-        return render(request, self.template, context={"form": form})
-
-    def post(self, request):
-        bound_form = self.model_form(request.POST)
-        if bound_form.is_valid():
-            new_obj = bound_form.save()
-            return redirect(new_obj)#перенаправление на стр с постами с этим тегом
-        return render(request, self.template, context={"form": bound_form})
-    raise_exception = True#403 ошибка, а не ссылка не найдена(тип доступ закрыт)
-
-class TagCreate(LoginRequiredMixin, View):
-    model_form = TagForm
-    template = "blog/tag_create.html"
-    raise_exception = True
-    def get(self, request):
-        form = self.model_form()
-        #django сам генерирует форму и инпуты
-        return render(request, self.template, context={"form": form})
-
-    def post(self, request):
-        bound_form = self.model_form(request.POST)
-
-        if bound_form.is_valid():
-            new_obj = bound_form.save()
-            return redirect(new_obj)#перенаправление на стр с постами с этим тегом
-        return render(request, self.template, context={"form": bound_form})
-
-class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
-    model = Post
-    model_form = PostForm
-    template = "blog/post_update_form.html"
-    raise_exception = True
-
-class TagUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
-    model = Tag
-    model_form = TagForm
-    template = "blog/tag_update_form.html"
-    raise_exception = True
-
-class TagDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
-    model = Tag
-    template = "blog/tag_delete_form.html"
-    redirectUrl = "tags_list_url"
-    raise_exception = True
-
-class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
-    model = Post
-    template = "blog/post_delete_form.html"
-    redirectUrl = "postsList_url"
-    raise_exception = True
-
 # class TestView(View):
 #     @staticmethod
 #     def get(request):

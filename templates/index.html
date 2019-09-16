@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/adaptive.css' %}">
+    <link rel="stylesheet" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" href="{% static 'css/light.css' %}">
+    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="{% static 'css/dark.css' %}">
     <title>
         {% block title%}
             Blog
@@ -57,7 +59,7 @@
         There is no any content for you(
     {% endblock %}
     {% if is_paginated %}
-    <div class="wrapper">
+    <footer>
     <nav aria-label="...">
       <ul class="pagination">
         <li class="page-item {% if not prev_url %} disabled {% endif %}">
@@ -83,6 +85,7 @@
         </li>
       </ul>
     </nav>
+    </footer>
     {% endif %}
     </div>
     <!-- {% if request.user.is_authenticated and request.user.is_staff %}

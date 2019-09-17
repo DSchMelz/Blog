@@ -8,7 +8,8 @@
 <div class="list">
     <!-- В таких скобках может указываться код python -->
     {% for post in page_object.object_list %}
-    <p>{% include "blog/includes/post_card_template.html" %}</p>
+    {% include "blog/includes/post_card_template.html" %}
+    
     <!-- выводим title поста -->
     <!-- как и во vue отображаем в фигурных скобках -->
     {% endfor %}

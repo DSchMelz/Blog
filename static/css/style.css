@@ -273,9 +273,14 @@ button.like {
     font-size: 25px;
 }
 
+#modalWrapper {
+    background-color: rgba(0,0,0,0.4);
+    filter:blur(1px);
+}
 
 #modal {
-    background-color: var(--modalColor);
+    color: var(--colorInModal);
+    background-color: #fff;
     border: solid black 1px;
     border-radius: 10px;
     position: absolute;
@@ -284,7 +289,7 @@ button.like {
     width: 50%;
     height: 30%;
     display: none;
-    z-index: 33;
+    z-index: 22;
 }
 
 #close {
@@ -297,10 +302,6 @@ button.like {
     justify-content: space-between;
     align-items: flex-start;
     padding: 10px;
-}
-
-.darkness {
-    background-color: var(--darkness);
 }
 
 .rotate {
@@ -343,23 +344,20 @@ button:focus {
 }
 
 :root {
-    --color: #050505;
+    --color: #000000;
 	--background-color: #ffffff;
 	--navBcg: #3c649c;
 	--searchBcg:#251f6b;
 	--settingsColor: #2f3640;
-	--darkness: #576574;
-	--modalColor: #fff;
 }
 
 [data-theme="dark"] {
     --color: #fafafa;
+    --colorInModal: #000000;
 	--background-color: #2f3640;
 	--cardBcg: #34495e;
 	--navBcg: #192a56;
 	--paginationBcg: #3c6382;
 	--searchBcg: #3c6382;
-	--settingsColor: #576574;
-	--darkness: rgba(19, 18, 18, 0.9);
-	--modalColor: #2980b9; 
+    --settingsColor: #576574;
 }

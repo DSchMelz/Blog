@@ -53,24 +53,14 @@
 			</form>
 			<button id="settings"><i class="fas fa-cog"></i></button>
 		</div>
-		<div id="modal">
-			<div class="wrap-modal">
-				<p>Выберите тему оформления сайта</p>
-				<button id="close"><i class="far fa-times-circle"></i></button>
-			</div>
-			<div>
-				<div class="sub">
-					<button id="lightBtn"><i id="light" class="fas fa-lightbulb"></i></button>
-					<span>Light</span>
-				</div>
-				<div class="sub">
-					<button id="darkBtn"><i id="dark" class="far fa-lightbulb"></i></button>
-					<span>Dark</span>
-				</div>
-			</div>
-		</div>
 	</nav>
-	</nav>
+	<div class="settingsBlock">
+		<span>Тема оформления:</span>
+			<ul>
+				<li>Light</li>
+				<li>Dark</li>
+			</ul>
+	</div>
 	{% block content %}
 	There is no any content for you(
 	{% endblock %}

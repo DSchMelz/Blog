@@ -7,6 +7,11 @@ body {
     padding: 0;
 }
 
+
+ul {
+    list-style-type: none;
+}
+
 .list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -248,7 +253,7 @@ button.like {
     background-color: var(--searchBcg);
 }
 
-.modal, .form-search {
+.form-search {
     display: inline-block;
     margin: 0 10px;
 }
@@ -271,65 +276,61 @@ button.like {
 #settings i {
     color: var(--settingsColor);
     font-size: 25px;
+    transition: 0.2s;
 }
 
-#modalWrapper {
-    background-color: rgba(0,0,0,0.4);
-    filter:blur(1px);
+#settings:hover i {
+    color: var(--settingsColorActive);
 }
 
-#modal {
-    color: var(--colorInModal);
-    background-color: #fff;
-    border: solid black 1px;
-    border-radius: 10px;
-    position: absolute;
-    left: 25%;
-    top: 40%;
-    width: 50%;
-    height: 30%;
+.settingsBlock {
+    position: fixed;
     display: none;
-    z-index: 22;
+    width: 10%;
+    right: 0;
+    background-color: var(--settingsBlockColor);
+    text-align: center;
 }
 
-#close {
-    font-size: 20px;
-    color: red;
+.settingsBlock span {
+    white-space: nowrap;
+    margin-bottom: 5%;
 }
 
-#modal div.wrap-modal {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px;
+.settingsBlock ul {
+    text-align: center;
+    border-radius: 5px;
 }
 
-.rotate {
-    transition: 0.4s;
-    transform: rotate(180deg);
+.settingsBlock ul li {
+    transition: 0.2s;
 }
 
-#modal div:nth-of-type(2) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.settingsBlock ul li:hover {
+    background-color: var(--settingsElementsColor);
+    cursor: pointer;
 }
 
-#light {
-    color: yellow;
-    font-size: 32px;
-    margin-right: 10px;
+.settingsBlock ul li:first-of-type:hover {
+    color: #fff200;
+} 
+
+.settingsBlock ul li:last-of-type:hover {
+    color: #000;
+} 
+
+.settingsActive {
+    display: block;
+    animation: settingsAnimation 0.3s ease-in-out;
 }
 
-#dark {
-    color: black;
-    font-size: 32px;
-}
-
-div.sub {
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px;
+@keyframes settingsAnimation {
+    0% {
+        width: 0;
+    }
+    80% {
+        width: 10%;
+    }
 }
 
 button {
@@ -348,7 +349,10 @@ button:focus {
 	--background-color: #ffffff;
 	--navBcg: #3c649c;
 	--searchBcg:#251f6b;
-	--settingsColor: #2f3640;
+    --settingsColor: #2f3640;
+    --settingsBlockColor: #ecf0f1;
+    --settingsColorActive: #4b4b4b;
+    --settingsElementsColor: #74b9ff;
 }
 
 [data-theme="dark"] {
@@ -358,6 +362,8 @@ button:focus {
 	--cardBcg: #34495e;
 	--navBcg: #192a56;
 	--paginationBcg: #3c6382;
-	--searchBcg: #3c6382;
+    --searchBcg: #3c6382;
+    --settingsBlockColor: #1b1c1d;
     --settingsColor: #576574;
+    --settingsElementsColor: #2980b9;
 }

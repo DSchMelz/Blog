@@ -76,22 +76,3 @@ class TagDetail(ObjectDetailMixin, View):
 def tags_list(request):
     tags = Tag.objects.all()#получаем все теги
     return render(request, "blog/tags_list.html", context = {"tags": tags})
-# class TestView(View):
-#     @staticmethod
-#     def get(request):
-#         # Здесь Вы обрабатываете запрос и формируете ответ
-#         data = {
-#             'time': datetime.now(),
-#         }
-
-#         return JsonResponse(data)
-
-#     @staticmethod
-#     def post(request):
-#         # Здесь Вы обрабатываете запрос и формируете ответ
-#         data = {
-#             'post': "It is post!",
-#             'comment': "It's response to POST request",
-#         }
-
-#         return JsonResponse(data)

@@ -15,39 +15,39 @@
   	form_btn.classList.toggle("form-btn-active");
   }
 
-var settingsBtn = document.querySelector("#settings");
-var settingsBlock = document.querySelector(".settingsBlock");
+// var settingsBtn = document.querySelector("#settings");
+// var settingsBlock = document.querySelector(".settingsBlock");
 
-settingsBtn.onclick = function() {
-  settingsBlock.classList.toggle("settingsActive");
-}
-
-//   var modal = document.getElementById("modal");
-//   var settings = document.getElementById("settings");
-//   var close = document.getElementById("close");
-  
-//   settings.onclick = function () {
-//   	settings.classList.add("rotate");
-//   	modal.style.display = "block";
-//   }
-
-// close.addEventListener("click", closeModal);
-
-// function closeModal() {
-//   	modal.style.display = "none";
+// settingsBtn.onclick = function() {
+//   settingsBlock.classList.toggle("settingsActive");
 // }
 
-  const currentTheme = localStorage.getItem("theme");
+const currentTheme = localStorage.getItem("theme");
   if (currentTheme) {
   	document.documentElement.setAttribute("data-theme", currentTheme);
   }
 
-  document.querySelector(".settingsBlock ul li:first-of-type").onclick = function () {
-  	document.documentElement.setAttribute("data-theme", "light");
-  	localStorage.setItem("theme", "light");
-  }
+if (currentTheme == "light") {
+  document.querySelector(".fa-sun").style.display = "none";
+}
 
-  document.querySelector(".settingsBlock ul li:last-of-type").onclick = function () {
-  	document.documentElement.setAttribute("data-theme", "dark");
-  	localStorage.setItem("theme", "dark");
-  }
+else {
+  document.querySelector(".fa-moon").style.display = "none";
+}
+
+var lightBtn = document.querySelector(".fa-sun");
+var darkBtn = document.querySelector(".fa-moon");
+
+lightBtn.addEventListener("click", function() {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+    this.style.display = "none";
+    darkBtn.style.display = "inline-block";
+});
+
+darkBtn.addEventListener("click", function() {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    this.style.display = "none";
+    lightBtn.style.display = "inline-block";
+});

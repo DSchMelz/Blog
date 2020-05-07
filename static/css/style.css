@@ -194,6 +194,7 @@ button.like:hover i {
 
 .fa-search {
     color: #000;
+    font-size: 20px;
 }
 
 .search-btn:hover {
@@ -204,8 +205,8 @@ button.like:hover i {
     outline: none;
     border: none;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
 }
 
 .form-btn {
@@ -265,72 +266,17 @@ button.like {
     height: 100%;
 }
 
-#settings {
-    width: 25px;
-    height: 25px;
-    background: none;
-    outline: none;
-    border: none;
-}
-
-#settings i {
-    color: var(--settingsColor);
-    font-size: 25px;
-    transition: 0.2s;
-}
-
-#settings:hover i {
-    color: var(--settingsColorActive);
-}
-
-.settingsBlock {
-    position: fixed;
-    display: none;
-    width: 10%;
-    right: 0;
-    background-color: var(--settingsBlockColor);
-    text-align: center;
-}
-
-.settingsBlock span {
-    white-space: nowrap;
-    margin-bottom: 5%;
-}
-
-.settingsBlock ul {
-    text-align: center;
-    border-radius: 5px;
-}
-
-.settingsBlock ul li {
-    transition: 0.2s;
-}
-
-.settingsBlock ul li:hover {
-    background-color: var(--settingsElementsColor);
+.themeBtn {
     cursor: pointer;
+    font-size: 30px;
 }
 
-.settingsBlock ul li:first-of-type:hover {
-    color: #fff200;
-} 
-
-.settingsBlock ul li:last-of-type:hover {
-    color: #000;
-} 
-
-.settingsActive {
-    display: block;
-    animation: settingsAnimation 0.3s ease-in-out;
+.fa-moon {
+    color: #130f40;
 }
 
-@keyframes settingsAnimation {
-    0% {
-        width: 0;
-    }
-    80% {
-        width: 10%;
-    }
+.fa-sun {
+    color: #fff;
 }
 
 button {
@@ -349,10 +295,6 @@ button:focus {
 	--background-color: #ffffff;
 	--navBcg: #3c649c;
 	--searchBcg:#251f6b;
-    --settingsColor: #2f3640;
-    --settingsBlockColor: #ecf0f1;
-    --settingsColorActive: #4b4b4b;
-    --settingsElementsColor: #74b9ff;
 }
 
 [data-theme="dark"] {
@@ -363,7 +305,4 @@ button:focus {
 	--navBcg: #192a56;
 	--paginationBcg: #3c6382;
     --searchBcg: #3c6382;
-    --settingsBlockColor: #1b1c1d;
-    --settingsColor: #576574;
-    --settingsElementsColor: #2980b9;
 }

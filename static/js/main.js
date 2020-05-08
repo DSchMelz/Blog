@@ -15,13 +15,6 @@
   	form_btn.classList.toggle("form-btn-active");
   }
 
-// var settingsBtn = document.querySelector("#settings");
-// var settingsBlock = document.querySelector(".settingsBlock");
-
-// settingsBtn.onclick = function() {
-//   settingsBlock.classList.toggle("settingsActive");
-// }
-
 const currentTheme = localStorage.getItem("theme");
   if (currentTheme) {
   	document.documentElement.setAttribute("data-theme", currentTheme);
@@ -50,4 +43,13 @@ darkBtn.addEventListener("click", function() {
     localStorage.setItem("theme", "dark");
     this.style.display = "none";
     lightBtn.style.display = "inline-block";
+});
+
+document.addEventListener('keydown', function(event) {
+  event.preventDefault();//отключаем поиск по странице от браузера
+  if (event.code == "KeyF" && event.ctrlKey) {
+    search_txt.focus();
+    search_txt.classList.toggle("search-input-active");
+  	form_btn.classList.toggle("form-btn-active");
+  }
 });

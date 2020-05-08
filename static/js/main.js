@@ -46,8 +46,8 @@ darkBtn.addEventListener("click", function() {
 });
 
 document.addEventListener('keydown', function(event) {
-  event.preventDefault();//отключаем поиск по странице от браузера
   if (event.code == "KeyF" && event.ctrlKey) {
+    event.preventDefault();//отключаем поиск по странице от браузера
     search_txt.focus();
     search_txt.classList.toggle("search-input-active");
   	form_btn.classList.toggle("form-btn-active");

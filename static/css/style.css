@@ -306,3 +306,26 @@ button:focus {
 	--paginationBcg: #3c6382;
     --searchBcg: #3c6382;
 }
+
+/* По настройкам системы */
+/* 
+@media (prefers-color-scheme: light) {
+    :root {
+        --color: #000000;
+        --background-color: #ffffff;
+        --navBcg: #3c649c;
+        --searchBcg:#251f6b;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: #fafafa;
+        --colorInModal: #000000;
+        --background-color: #2f3640;
+        --cardBcg: #34495e;
+        --navBcg: #192a56;
+        --paginationBcg: #3c6382;
+        --searchBcg: #3c6382;
+    }
+} */

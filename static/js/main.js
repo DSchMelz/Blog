@@ -36,6 +36,7 @@ lightBtn.addEventListener("click", function() {
     localStorage.setItem("theme", "light");
     this.style.display = "none";
     darkBtn.style.display = "inline-block";
+    document.body.style.transition = "all 0.3s";
 });
 
 darkBtn.addEventListener("click", function() {
@@ -43,6 +44,7 @@ darkBtn.addEventListener("click", function() {
     localStorage.setItem("theme", "dark");
     this.style.display = "none";
     lightBtn.style.display = "inline-block";
+    document.body.style.transition = "all 0.3s";
 });
 
 document.addEventListener('keydown', function(event) {

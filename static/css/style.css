@@ -310,6 +310,10 @@ button:focus {
 /* По настройкам системы */
 /* 
 @media (prefers-color-scheme: light) {
+    body {
+        transition: all 0.3s;
+    }
+
     :root {
         --color: #000000;
         --background-color: #ffffff;
@@ -319,6 +323,10 @@ button:focus {
 }
 
 @media (prefers-color-scheme: dark) {
+    body {
+        transition: all 0.3s;
+    }
+
     :root {
         --color: #fafafa;
         --colorInModal: #000000;

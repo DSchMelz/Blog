@@ -1,31 +1,22 @@
 {% load static %}
 <!-- загружаем статичные файлы -->
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<script src="{% static 'js/jquery.js' %}"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 	<!-- подключаем css файл -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<link rel="shortcut icon" type="image/ico" href="../static/favicon.ico">
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
 	<title>
 		{% block title%}
 		Blog
 		{% endblock %}
 	</title>
-	<!-- если ничего не будет в основных файлах, то будет отображаться это -->
 </head>
-
 <body>
 	<nav class="nav-urls">
 		<ul>
@@ -49,8 +40,8 @@
 				<button class="form-btn" type="submit"><i class="fas fa-check"></i></button>
 			</form>
 			<div class="theme">
-				<i class="fas fa-moon themeBtn"></i>
-				<i class="fas fa-sun themeBtn"></i>
+				<i title="Dark theme" class="fas fa-moon theme-btn"></i>
+				<i title="Light theme" class="fas fa-sun theme-btn"></i>
 			</div>
 		</div>
 	</nav>
@@ -58,21 +49,20 @@
 	There is no any content for you(
 	{% endblock %}
 	{% if is_paginated %}
-	<footer>
-		<nav aria-label="...">
-			<ul class="pagination">
+		<nav class="pagination">
+			<ul>
 				<li class="page-item {% if not prev_url %} disabled {% endif %}">
-					<a class="page-link" href="{{prev_url}}" tabindex="-1" aria-disabled="true">Previous</a>
+					<a class="page-link" href="{{prev_url}}">Previous</a>
 				</li>
 				{% for n in page_object.paginator.page_range %}
 				<!-- посты в пагинатре с перовой стр до последней -->
-				{% if page_object.number == n%}
-				<li class="page-item active" aria-current="page">
-					<a class="page-link" href="?page={{n}}">{{n}}<span class="sr-only"></span></a>
+				{% if page_object.number == n %}
+				<li class="page-item num active" aria-current="page">
+					<a class="page-link" href="?page={{n}}">{{n}}</a>
 				</li>
 				{% elif n > page_object.number|add:-3 and n < page_object.number|add:3%}
 				<!-- отобр только +- 3 от текущ элемента -->
-				<li class="page-item">
+				<li class="page-item num">
 					<a class="page-link" href="?page={{n}}">{{n}}</a>
 					<!-- ссылка -->
 				</li>
@@ -84,10 +74,8 @@
 				</li>
 			</ul>
 		</nav>
-	</footer>
 	{% endif %}
-	</div>
 </body>
-<script src="{% static 'js/main.js' %}"></script>
-
+<script src="{% static 'js/script.js' %}"></script>
+<script src="https://kit.fontawesome.com/dfa8e91403.js" crossorigin="anonymous"></script>
 </html>

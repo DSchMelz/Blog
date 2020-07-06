@@ -24,6 +24,7 @@
     --link: #1e90ff;
     --tag-color: #7f8c8d;
     --like: #ff0000;
+    --date: #b9b9b9;
 }
 
 [data-theme="dark"] {
@@ -193,7 +194,11 @@ ul {
 
 .post h1 {
     font-size: 3rem;
-    margin-bottom: 1em;
+}
+
+.post .date-pub {
+    color: var(--date);
+    margin-bottom: 2em;
 }
 
 .tag {

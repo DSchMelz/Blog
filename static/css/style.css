@@ -240,7 +240,7 @@ header {
 }
 
 .about {
-    width: 60vw;
+    width: max(400px, 60vw);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -292,7 +292,7 @@ header {
 }
 
 .card {
-    width: max(400px, 40vw);
+    width: max(450px, 40vw);
     min-height: 200px;
     margin: 4em 0;
     background-color: var(--card);

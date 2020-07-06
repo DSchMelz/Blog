@@ -18,59 +18,61 @@
 	</title>
 </head>
 <body>
-	<nav class="nav-urls">
-		<ul>
-			<li>
-				<a href="{% url 'postsList_url'%}">Posts</a>
-				<!-- ссылка, так удобнее указывать, и чтобы было без ошибок -->
-			</li>
-			<li>
-				<a href="{% url 'tags_list_url' %}">Tags</a>
-			</li>
-			<li>
-				<a href="{% url 'aboutList_url'%}">About</a>
-			</li>
-		</ul>
-		<div class="right">
-			<form action="{% url 'postsList_url' %}" class="form-search">
-				<input class="search-input" type="search" name="search">
-				<button class="search-btn">
-					<i class="fas fa-search"></i>
+	<header>
+		<nav class="menu">
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a class="menu__link" href="{% url 'postsList_url'%}">Posts</a>
+					<!-- ссылка, так удобнее указывать, и чтобы было без ошибок -->
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="{% url 'tags_list_url' %}">Tags</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="{% url 'aboutList_url'%}">About</a>
+				</li>
+			</ul>
+		</nav>
+		<section class="right-menu">
+			<form action="{% url 'postsList_url' %}" class="search">
+				<input class="search__input" type="search">
+				<button class="search__btn">
+					<i class="search__icon fas fa-search"></i>
 				</button>
-				<button class="form-btn" type="submit"><i class="fas fa-check"></i></button>
+				<button class="search__submit" type="submit"><i class="submit__icon fas fa-check"></i></button>
 			</form>
 			<div class="theme">
-				<i title="Dark theme" class="fas fa-moon theme-btn"></i>
-				<i title="Light theme" class="fas fa-sun theme-btn"></i>
+				<i title="Dark theme" class="theme__btn theme__dark fas fa-moon"></i>
+				<i title="Light theme" class="theme__btn theme__light fas fa-sun"></i>
 			</div>
-		</div>
-	</nav>
+		</section>
+	</header>
 	{% block content %}
 	There is no any content for you(
 	{% endblock %}
 	{% if is_paginated %}
 		<nav class="pagination">
-			<ul>
-				<li class="page-item {% if not prev_url %} disabled {% endif %}">
-					<a class="page-link" href="{{prev_url}}">Previous</a>
+			<ul class="pagination__list">
+				<li class="pagination__item {% if not prev_url %} pagination__item_disabled {% endif %}">
+					<a class="pagination__link" href="{{prev_url}}">Previous</a>
 				</li>
 				{% for n in page_object.paginator.page_range %}
 				<!-- посты в пагинатре с перовой стр до последней -->
 				{% if page_object.number == n %}
-				<li class="page-item num active" aria-current="page">
-					<a class="page-link" href="?page={{n}}">{{n}}</a>
+				<li class="pagination__item pagination__item_num pagination__item_active" aria-current="page">
+					<a class="pagination__link" href="?page={{n}}">{{n}}</a>
 				</li>
 				{% elif n > page_object.number|add:-3 and n < page_object.number|add:3%}
 				<!-- отобр только +- 3 от текущ элемента -->
-				<li class="page-item num">
-					<a class="page-link" href="?page={{n}}">{{n}}</a>
+				<li class="pagination__item pagination__item_num">
+					<a class="pagination__link" href="?page={{n}}">{{n}}</a>
 					<!-- ссылка -->
 				</li>
 				{% endif %}
 				{% endfor %}
 
-				<li class="page-item {% if not next_url %} disabled {% endif %}">
-					<a class="page-link" href="{{next_url}}">Next</a>
+				<li class="pagination__item {% if not next_url %} pagination__item_disabled {% endif %}">
+					<a class="pagination__link" href="{{next_url}}">Next</a>
 				</li>
 			</ul>
 		</nav>

@@ -1,22 +1,22 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card__date">
         {{post.date_pub}}
     </div>
-    <div class="card-body">
-        <h3 class="card-title">{{post.title}}</h3>
-        <p class="card-text">{{post.body|truncatewords:15}}</p>
+    <div class="card__body">
+        <h3 class="card__title">{{post.title}}</h3>
+        <p class="card__text">{{post.body|truncatewords:15}}</p>
         <!-- обрезаем кол слов до 15 -->
         <a href="{{ post.get_absolute_url }}" class="post-link">Read Post</a>
         <!-- вместо ссылки выше можно указывать {% url 'post_detail_url' slug=post.slug %}, что является более понятным -->
     </div>
-    <div class="card-footer">
-        <div class="post-tags">
+    <div class="card__footer">
+        <div>
             Tags: {% for tag in post.tags.all %}
             <a href="{{tag.get_absolute_url}}" class="tag-link">{{tag.title}}</a>
         </div>
         {% endfor %}
         <button class="like" type="submit">
-            <i class="heart far fa-heart"></i>
+            <i class="like__icon heart far fa-heart"></i>
         </button>
     </div>
 </div>

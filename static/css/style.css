@@ -1,10 +1,8 @@
-/* TODO: код в css поменять местами по логике, желательно поменять названия классов */
-
 :root {
     --color: #000000;
     --background-color: #fff;
     
-    --navBcg: #3c649c;
+    --header: #3c649c;
     --searchBcg:#251f6b;
     --nav-link-effect: #c4c4c4;
     --submit-btn: #2ecc71;
@@ -31,7 +29,7 @@
     --color: #fafafa;
     --background-color: #2f3640;
     
-    --navBcg: #192a56;
+    --header: #192a56;
     --searchBcg: #3c6382;
 
     --card: #34495e;
@@ -85,41 +83,39 @@ ul {
     list-style-type: none;
 }
 
-.posts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-wrap: wrap;
-}
-
-.nav-urls {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     height: 70px;
+    background-color: var(--header);
     padding: 0 20px;
-    background-color: var(--navBcg);
 }
 
-.nav-urls ul {
+.menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.menu__list {
     list-style: none;
     margin: 0;
 }
 
-.nav-urls ul li {
+.menu__item {
     display: inline-block;
     margin: 0 15px;
 }
 
-.nav-urls ul li a {
+.menu__link {
     color: #fff;
     font-weight: 600;
     position: relative;
 }
 
-.nav-urls ul li a::before {
+.menu__link::before {
 	content: '';
 	bottom: -5px;
 	right: 0;
@@ -130,13 +126,92 @@ ul {
 	transition: 0.2s;
 }
 
-.nav-urls ul li a:hover::before,
-.nav-urls ul li a:focus::before {
+.menu__link:hover::before,
+.menu__link:focus::before {
 	width: 100%;
 	left: 0;
 }
 
-.wrapper-tags {
+.right-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.search {
+    margin-right: 1em;
+}
+
+.search__input {
+    width: 200px;
+    height: 25px;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.25s;
+    outline: none;
+    border:none;
+    margin: 0;
+    color: #fff;
+    padding-left: 5%;
+}
+
+.search__input_active {
+    opacity: 1;
+}
+
+.search__btn {
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+}
+
+.search__input, .search__btn {
+    background-color: var(--searchBcg);
+}
+
+.search__icon {
+    color: #000;
+    font-size: 20px;
+}
+
+.search__submit {
+    height: 25px;
+    width: 25px;
+    background-color: var(--submit-btn);
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.submit__icon {
+    color: #fff;
+}
+
+.search__submit_active {
+    opacity: 1;
+}
+
+.theme__btn {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.theme__moon {
+    color: #130f40;
+}
+
+.theme__sun {
+    color: #fff;
+}
+
+.tags-list {
     width: 80vw;
     margin: 0 auto;
     display: flex;
@@ -145,20 +220,26 @@ ul {
     padding-top: 2em;
 }
 
-.wrapper-tags h1 {
+.tags-list__header {
     font-size: 2.5rem;
     margin-bottom: 1em;
 }
 
-.wrapper-tags p {
+.tags-list__link {
     font-size: 2rem;
-}
-
-.wrapper-tags p a {
     color: var(--link);
 }
 
-.about-wrapper {
+.tag {
+    width: 80vw;
+    margin: 0 auto;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about {
     width: 60vw;
     margin: 0 auto;
     display: flex;
@@ -167,18 +248,27 @@ ul {
     padding: 3em 0;
 }
 
-.about-wrapper h1 {
+.about__header {
     margin-bottom: 1em;
 }
 
-.about-wrapper p {
+.about__paragraph {
     text-align: justify;
     line-height: 1.8em;
     font-size: 1.2rem;
 }
 
-.about-wrapper p:first-of-type {
+.about__paragraph:first-of-type {
     margin-bottom: 2em;
+}
+
+.posts {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .post {
@@ -192,22 +282,13 @@ ul {
     font-size: 1.5rem;
 }
 
-.post h1 {
+.post__header {
     font-size: 3rem;
 }
 
-.post .date-pub {
+.post__date {
     color: var(--date);
     margin-bottom: 2em;
-}
-
-.tag {
-    width: 80vw;
-    margin: 0 auto;
-    padding-top: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .card {
@@ -224,27 +305,27 @@ ul {
     padding: 1em;
 }
 
-.card-header, .card-footer {
+.card__date, .card__footer {
     background-color: var(--card-secondary);
 }
 
-.card-header {
+.card__date {
     color: var(--card-body);
     padding: 1em;
     border-bottom: 2px solid var(--card-inner-border);
     border-radius: 10px 10px 0 0;
 }
 
-.card-title {
+.card__title {
     font-weight: 600;
     margin-bottom: 0.5em;
 }
 
-.card-text {
+.card__text {
     color: var(--card-body);
 }
 
-.card a.post-link {
+.post-link {
     color: #fff;
     display: inline-block;
     margin-top: 1em;
@@ -253,7 +334,7 @@ ul {
     background-color: var(--link);
 }
 
-.card-footer {
+.card__footer {
     color: var(--tag-color);
     border-top: 2px solid var(--card-inner-border);
     display: flex;
@@ -262,26 +343,26 @@ ul {
     border-radius: 0 0 10px 10px;
 }
 
-.card-footer .tag-link {
+.tag-link {
     color: var(--link);
 }
 
-.card-footer .like {
+.like {
     margin-right: 1em;
 }
 
-.card-footer .like i {
+.like__icon {
     font-size: 1.5rem;
     color: var(--like);
     transition: 0.25s;
 }
 
-.card-footer .like:hover i,
-.card-footer .like:focus i {
+.like:hover .like__icon,
+.like:focus .like__icon {
     transform: scale(1.2);
 }
 
-.like-animation {
+.like_selected {
     animation: like 0.5s, ease-in;
 }
 
@@ -292,89 +373,6 @@ ul {
     50% {
         transform: scale(1.8);
     }
-}
-
-.search-input {
-    width: 200px;
-    height: 25px;
-    border-radius: 40px;
-    opacity: 0;
-    transition: 0.25s;
-    outline: none;
-    border:none;
-    margin: 0;
-    color: #fff;
-    padding-left: 5%;
-}
-
-.search-input-active {
-    opacity: 1;
-}
-
-.fa-search {
-    color: #000;
-    font-size: 20px;
-}
-
-.search-btn:hover {
-    text-decoration: none;
-}
-
-.search-btn {
-    outline: none;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}
-
-.form-btn {
-    height: 25px;
-    width: 25px;
-    background-color: var(--submit-btn);
-    border: none;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    opacity: 0;
-    transition: 0.25s;
-}
-
-.form-btn i {
-    color: #fff;
-}
-
-.form-btn-active {
-    opacity: 1;
-}
-
-.search-btn, form .search-input {
-    background-color: var(--searchBcg);
-}
-
-.form-search {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.theme-btn {
-    cursor: pointer;
-    font-size: 30px;
-}
-
-.fa-moon {
-    color: #130f40;
-}
-
-.fa-sun {
-    color: #fff;
 }
 
 .pagination {
@@ -393,24 +391,24 @@ ul {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.pagination ul {
+.pagination__list {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.page-item {
+.pagination__item {
     position: relative;
     font-weight: 600;
 }
 
-.page-item.num {
+.pagination__item_num {
     width: 30px;
     height: 30px;
 }
 
-.page-link {
+.pagination__link {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -418,25 +416,25 @@ ul {
     color: var(--page-link);
 }
 
-.page-item.num .page-link {
+.pagination__item_num .pagination__link {
     display: block;
     border-radius: 50%;
     transition: 0.2s;
 }
 
-.page-item.num:hover .page-link,
-.page-item.num.active .page-link {
+.pagination__item_num:hover .pagination__link,
+.pagination__item_active .pagination__link {
     --page-link: #fff;
     background-color: var(--page-item);
 }
 
-.page-item.disabled .page-link {
+.pagination__item_disabled .pagination__link {
     color: var(--disabled);
-    cursor: initial;
+    cursor: default;
 }
 
-.page-item.disabled .page-link:hover,
-.page-item.disabled .page-link:focus {
+.pagination__item_disabled .pagination__link:hover,
+.pagination__item_disabled .pagination__link:focus {
     filter: none;
     pointer-events: none; /* отключает возможность клика по disabled ссылке */
 }
@@ -450,11 +448,11 @@ ul {
         width: 50vw;
     }
 
-    .page-item.num {
+    .pagination__item_num {
         display: none;
     }
 
-    .form-search {
+    .search {
         display: none;
     }
 }
@@ -482,7 +480,7 @@ ul {
     --color: #000000;
     --background-color: #fff;
     
-    --navBcg: #3c649c;
+    --header: #3c649c;
     --searchBcg:#251f6b;
 
     --card: #fff;
@@ -511,7 +509,7 @@ ul {
     --color: #fafafa;
     --background-color: #2f3640;
     
-    --navBcg: #192a56;
+    --header: #192a56;
     --searchBcg: #3c6382;
 
     --card: #34495e;

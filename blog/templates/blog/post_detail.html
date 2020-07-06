@@ -5,10 +5,10 @@
 <!-- title будет "тайтлом поста - значение по умолчанию в базовом шаблоне"  -->
 {% block content %}
 <div class="post">
-    <h1>
+    <h1 class="post__header">
         {{post.title}}
     </h1>
-    <p class="date-pub">{{post.date_pub}}</p>
+    <p class="post__date">{{post.date_pub}}</p>
     <p>{{post.body}}</p>
 </div>
 {% endblock %}

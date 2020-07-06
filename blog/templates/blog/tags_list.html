@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="wrapper-tags">
-    <h1>Tags:</h1>
+<div class="tags-list">
+    <h1 class="tags-list__header">Tags:</h1>
     {% for tag in tags %}
-        <p><a href="{{tag.get_absolute_url}}">{{tag.title}}</a></p>
+        <p><a class="tags-list__link" href="{{tag.get_absolute_url}}">{{tag.title}}</a></p>
     {% endfor %}
 </div>
 {% endblock %}

@@ -1,20 +1,20 @@
 const likeBtns = document.querySelectorAll('.like');
 likeBtns.forEach((item) => {
     item.addEventListener('click', function() {
-        item.children[0].classList.toggle('like-animation');
+        item.children[0].classList.toggle('like_selected');
         item.children[0].classList.toggle('fas');
     })
 })
 
-const searchTxt = document.querySelector(".search-input");
-const searchBtn = document.querySelector(".search-btn");
-const formBtn = document.querySelector(".form-btn");
+const searchInput = document.querySelector(".search__input");
+const searchBtn = document.querySelector(".search__btn");
+const searchSubmit = document.querySelector(".search__submit");
 
 function search(event) {
     event.preventDefault();
-    searchTxt.focus();
-    searchTxt.classList.toggle("search-input-active");
-    formBtn.classList.toggle("form-btn-active");
+    searchInput.focus();
+    searchInput.classList.toggle("search__input_active");
+    searchSubmit.classList.toggle("search__submit_active");
 }
 
 searchBtn.addEventListener('click', search);
@@ -24,15 +24,15 @@ if (currentTheme) {
     document.documentElement.setAttribute("data-theme", currentTheme);
 }
 
+const lightBtn = document.querySelector(".theme__light");
+const darkBtn = document.querySelector(".theme__dark");
+
 if (currentTheme == "light") {
-    document.querySelector(".fa-sun").style.display = "none";
+    lightBtn.style.display = "none";
 } 
 else {
-    document.querySelector(".fa-moon").style.display = "none";
+    darkBtn.style.display = "none";
 }
-
-const lightBtn = document.querySelector(".fa-sun");
-const darkBtn = document.querySelector(".fa-moon");
 
 lightBtn.addEventListener("click", function () {
     document.documentElement.setAttribute("data-theme", "light");

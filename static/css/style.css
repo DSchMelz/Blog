@@ -292,7 +292,8 @@ header {
 }
 
 .card {
-    width: max(450px, 40vw);
+    width: 40vw;
+    min-width: 400px;
     min-height: 200px;
     margin: 4em 0;
     background-color: var(--card);
@@ -454,6 +455,12 @@ header {
 
     .search {
         display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .card {
+        width: 80vw;
     }
 }
 

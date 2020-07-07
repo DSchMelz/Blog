@@ -35,7 +35,8 @@
 		</nav>
 		<section class="right-menu">
 			<form action="{% url 'postsList_url' %}" class="search">
-				<input class="search__input" type="search">
+				<input class="search__input" type="search" name="search">
+				<!-- не убирать name у инпута! а то поиск сломается -->
 				<button class="search__btn">
 					<i class="search__icon fas fa-search"></i>
 				</button>

@@ -46,11 +46,11 @@ def postsList(request):
     is_paginated = page.has_other_pages()
 
     if page.has_previous():
-        prev_url = "?page={}".format(page.previous_page_number())
+        prev_url = f'?page={page.previous_page_number()}'
     else:
         prev_url = ""
     if page.has_next():
-        next_url = "?page={}".format(page.next_page_number())
+        next_url = f'?page={page.next_page_number()}'
     else:
         next_url = ""
 

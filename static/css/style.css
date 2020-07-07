@@ -270,6 +270,13 @@ header {
     flex-wrap: wrap;
 }
 
+.search-wrong {
+    margin-top: 1em;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+}
+
 .post {
     width: 80vw;
     margin: 0 auto;

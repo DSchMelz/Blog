@@ -7,11 +7,15 @@
     {% block content %}
 <div class="posts">
     <!-- В таких скобках может указываться код python -->
-    {% for post in page_object.object_list %}
-    {% include "blog/includes/post_card_template.html" %}
-    
-    <!-- выводим title поста -->
-    <!-- как и во vue отображаем в фигурных скобках -->
-    {% endfor %}
+    {% if page_object.object_list %}
+        {% for post in page_object.object_list %}
+        {% include "blog/includes/post_card_template.html" %}
+        
+        <!-- выводим title поста -->
+        <!-- как и во vue отображаем в фигурных скобках -->
+        {% endfor %}
+        {% else %}  
+            <p class="search-wrong">No results :(</p>
+    {% endif %}
 </div>
     {% endblock %}

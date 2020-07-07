@@ -3,7 +3,7 @@
     --background-color: #fff;
     
     --header: #3c649c;
-    --searchBcg:#251f6b;
+    --searchBcg:#273c75;
     --nav-link-effect: #c4c4c4;
     --submit-btn: #2ecc71;
 
@@ -140,37 +140,32 @@ header {
 }
 
 .search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
     margin-right: 1em;
+    padding: 3px;
+    border: 2px solid var(--searchBcg);
+    border-radius: 100px;
+    overflow: hidden;
+    font-size: 1.125rem;
+    transition: width 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28); /* с помощью devtools */
 }
 
 .search__input {
-    width: 200px;
-    height: 25px;
-    border-radius: 40px;
-    opacity: 0;
-    transition: 0.25s;
-    outline: none;
-    border:none;
-    margin: 0;
-    color: #fff;
-    padding-left: 5%;
-}
-
-.search__input_active {
-    opacity: 1;
-}
-
-.search__btn {
-    outline: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    text-decoration: none;
-}
-
-.search__input, .search__btn {
-    background-color: var(--searchBcg);
+    outline: none;
+    padding: 0.25em 1.2em;
+    opacity: 0;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
 }
 
 .search__icon {
@@ -179,23 +174,35 @@ header {
 }
 
 .search__submit {
-    height: 25px;
-    width: 25px;
-    background-color: var(--submit-btn);
+    font-size: 1.5rem;
+    margin-left: auto;
+    background: none;
     border: none;
-    border-radius: 50%;
-    outline: none;
     cursor: pointer;
-    opacity: 0;
-    transition: 0.25s;
+    border-radius: 50%;
+    transition: background 0.2s ease-out;
+    width: 50px;
+    height: 50px;
 }
 
-.submit__icon {
+.search:focus-within { 
+    width: 350px;
+}
+
+.search:focus-within .search__input {
+    opacity: 1;
+    width: calc(100% - 60px);
+    height: 100%;
+    cursor: initial;
     color: #fff;
 }
 
-.search__submit_active {
-    opacity: 1;
+.search:focus-within .search__submit {
+    background-color: var(--submit-btn);
+}
+
+.search:focus-within .search__icon {
+    color: #fff;
 }
 
 .theme__btn {

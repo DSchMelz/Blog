@@ -37,10 +37,7 @@
 			<form action="{% url 'postsList_url' %}" class="search">
 				<input class="search__input" type="search" name="search">
 				<!-- не убирать name у инпута! а то поиск сломается -->
-				<button class="search__btn">
-					<i class="search__icon fas fa-search"></i>
-				</button>
-				<button class="search__submit" type="submit"><i class="submit__icon fas fa-check"></i></button>
+				<button class="search__submit" type="button"><i class="search__icon fas fa-search"></i></button>
 			</form>
 			<div class="theme">
 				<i title="Dark theme" class="theme__btn theme__dark fas fa-moon"></i>

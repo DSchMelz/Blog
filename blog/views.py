@@ -5,7 +5,6 @@ from .models import Post, Tag
 from django.views.generic import View
 from django.shortcuts import get_object_or_404
 from .mixins import *
-from .forms import TagForm, PostForm
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator

@@ -1,27 +1,3 @@
-const likeBtns = document.querySelectorAll('.like');
-likeBtns.forEach((item) => {
-    item.addEventListener('click', function() {
-        item.children[0].classList.toggle('like_selected');
-        item.children[0].classList.toggle('fas');
-    })
-})
-
-const searchBtn = document.querySelector('.search__submit');
-const searchInput = document.querySelector('.search__input');
-
-// да, без второй кнопочки немного костыльно, но пойдет)))
-// работает не идеально, но, что смог, я сделал. Есть один небольшой баг, но как его устранить я уже хз
-searchBtn.addEventListener('click', function() {
-    searchInput.focus();
-    
-    searchBtn.addEventListener('click', function() {
-        if (searchInput.value) {//если есть введенный текст, то можно и при следующем клике отправлять форму, а если инпут пустой, то нельзя
-            searchBtn.setAttribute('type', 'submit');
-        }
-    })
-    searchBtn.setAttribute('type', 'button');
-})
-
 const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
     document.documentElement.setAttribute("data-theme", currentTheme);
@@ -52,3 +28,27 @@ darkBtn.addEventListener("click", function () {
     lightBtn.style.display = "inline-block";
     document.body.style.transition = "all 0.3s";
 });
+
+const likeBtns = document.querySelectorAll('.like');
+likeBtns.forEach((item) => {
+    item.addEventListener('click', function() {
+        item.children[0].classList.toggle('like_selected');
+        item.children[0].classList.toggle('fas');
+    })
+})
+
+const searchBtn = document.querySelector('.search__submit');
+const searchInput = document.querySelector('.search__input');
+
+// да, без второй кнопочки немного костыльно, но пойдет)))
+// работает не идеально, но, что смог, я сделал. Есть один небольшой баг, но как его устранить я уже хз
+searchBtn.addEventListener('click', function() {
+    searchInput.focus();
+    
+    searchBtn.addEventListener('click', function() {
+        if (searchInput.value) {//если есть введенный текст, то можно и при следующем клике отправлять форму, а если инпут пустой, то нельзя
+            searchBtn.setAttribute('type', 'submit');
+        }
+    })
+    searchBtn.setAttribute('type', 'button');
+})
